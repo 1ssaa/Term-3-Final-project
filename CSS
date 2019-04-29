@@ -11,30 +11,30 @@ html {
 
 button {
 
-  border-radius: 10px ;
+  border-radius: 15px ;
   font-family: Anton;
   background-color: transparent;
   font-size: inherit;
   text-align: center;
-  outline: 0.1px solid blue;
-  border: 0.4px solid blue;
+  outline: px solid blue;
+  border: 0.8px solid blue;
 }
 
 
 body {
   align-items: center;
-  background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+  background-image: url("sea-edge-79ab30e2.png");
   display: flex;
   justify-content: center;
 }
-/* backround color and dispalay:flex taken from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98 */
+/* "dispalay:flex" taken from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98 */
 
 .calculator_screen {
   border: 1px solid blue;
-  background-color: #D3D3D3;
+  background-color: #ADD8E6;
   color: #000000;
-  font-size: 1.714285714em;
-  padding: 0.3em 0.5em;
+  font-size: 200%;
+  padding: 0.15em 0.3em;
   text-align: right;
   overflow: hidden;
 }
@@ -42,7 +42,7 @@ body {
 .calculator_Buttons {
   background-color: #999;
   display: grid;
-  grid-gap: 1px;
+  grid-gap: 0.75px;
   grid-template-columns: repeat(4,1fr);
 }
 
@@ -55,7 +55,7 @@ body {
 .equal {
   background-color: #90EE90;
   grid-column: -2;
-  grid-row: 2 / span 4;
+  grid-row: 2 / span 6;
 }
 
 button:active{
