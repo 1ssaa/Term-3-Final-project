@@ -1,6 +1,13 @@
 const calculator = document.querySelector(‘.calculator’)
 const Buttons = calculator.querySelector(‘.calculator__Buttons’)
 
+  button.addEventListener(‘click’, e => {
+ if (e.target.matches(‘button’)) {
+
+
+ }
+})
+
 var screen = [-∞,∞]
 
 var button0 = 0;
