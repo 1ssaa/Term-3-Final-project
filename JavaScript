@@ -1,1 +1,15 @@
-var = buttons 
+const calculator = document.querySelector(‘.calculator’)
+const Buttons = calculator.querySelector(‘.calculator__Buttons’)
+
+var screen = [-∞,∞]
+
+var button0 = 0;
+var button1 = 1;
+var button2 = 2;
+var button3 = 3;
+var button4 = 4;
+var button5 = 5;
+var button6 = 6;
+var button7 = 7;
+var button8 = 8;
+var button9 = 9;
