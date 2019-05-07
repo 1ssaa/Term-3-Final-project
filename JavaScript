@@ -1,12 +1,12 @@
-const calculator = document.querySelector(‘.calculator’)
-const Buttons = calculator.querySelector(‘.calculator__Buttons’)
+const calculator = document.querySelector("calculator")
+const Buttons = calculator.querySelector("calculator__Buttons")
 
-  button.addEventListener(‘click’, e =>
- if (e.target.matches(‘button’)) {
-// from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
-
- }
+button.addEventListener("onclick",
+{
+if (e.target.matches(‘button’))
+ // from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
 })
+
 
 const button = e.target
 const action = button.dataset.action // this determines the type of key that is clicked
@@ -16,9 +16,9 @@ if (!action) {
 }
 
 if (
-  action = 'add' ||
-  action = 'subtract' ||
-  action = 'multiply' ||
+  action = 'add'
+  action = 'subtract'
+  action = 'multiply'
   action = 'divide'
 ) {
   console.log('symbol button!')
