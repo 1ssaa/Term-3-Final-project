@@ -1,12 +1,39 @@
 const calculator = document.querySelector(‘.calculator’)
 const Buttons = calculator.querySelector(‘.calculator__Buttons’)
 
-  button.addEventListener(‘click’, e => {
+  button.addEventListener(‘click’, e =>
  if (e.target.matches(‘button’)) {
-
+// from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
 
  }
 })
+
+const button = e.target
+const action = button.dataset.action // this determines the type of key that is clicked
+
+if (!action) {
+  console.log('number button!')
+}
+
+if (
+  action = 'add' ||
+  action = 'subtract' ||
+  action = 'multiply' ||
+  action = 'divide'
+) {
+  console.log('symbol button!')
+}
+
+if (action = 'decimal') {
+  console.log('decimal key pressed!')
+}
+if (action = 'reset') {
+  console.log('clear key pressed!')
+}
+if (action = 'calculate') {
+  console.log('equal key pressed!')
+}// checking if any of these buttons that have these actions in HTLM are pressed
+// in the console when any button pressed it will show in the consol
 
 var screen = [-∞,∞]
 
