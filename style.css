@@ -1,66 +1,65 @@
-    
+
 p {
-  font-weight: bold;
-  font-size: 60px;
-  text-align: center;
+font-weight: bold;
+font-size: 60px;
+text-align: center;
 }
 
 html {
-  font-size: 250%;
-  font-weight: 300;
+font-size: 250%;
+font-weight: 300;
 }
 
 button {
-  
-  color: #000000;
-  backround-color: #b38f00;
-  border-radius: 15px ;
-  font-family: Anton;
-  background-color: transparent;
-  font-size: inherit;
-  text-align: center;
-  outline: 2px solid #ffcc00;
-  border:  1px solid #ffcc00;
+color: #000000;
+backround-color: #b38f00;
+border-radius: 15px ;
+font-family: Anton;
+background-color: transparent;
+font-size: inherit;
+text-align: center;
+outline: 2px solid #ffcc00;
+border:  1px solid #ffcc00;
 }
 
 
 body {
-  align-items: center;
-  background-color:#ffcc00;
-  display: flex;
-  justify-content: center;
+align-items: center;
+background-color:#ffcc00;
+display: flex;
+justify-content: center;
 }
 /* "dispalay:flex" taken from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98 */
 
-.calculator_screen {
-  border: 4px solid #ffcc00;
-  background-color: #ffccff;
-  color: #000000;
-  font-size: 200%;
-  padding: 0.15em 0.3em;
-  text-align: right;
-  overflow: hidden;
+.screen {
+border: 4px solid #ffcc00;
+background-color: #ffccff;
+color: #000000;
+font-size: 200%;
+padding: 0.15em 0.001em;
+text-align: right;
+overflow: hidden;
 }
 
-.calculator_Buttons {
-  background-color: #ffcc00;
-  display: grid;
-  grid-gap: 0.75px;
-  grid-template-columns: repeat(4,1fr);
+.calculator-keys {
+background-color: #ffcc00;
+display: grid;
+grid-gap: 0.75px;
+grid-template-columns: repeat(4,1fr);
 }
 
-.calculator_Buttons > * {
-  background-color: #F0F8FF;
-  padding: 0.5em 1.25em;
-  text-align: center;
+.calculator-keys > * {
+background-color: #F0F8FF;
+padding: 0.5em 1.25em;
+text-align: center;
 }
 
-.equal {
-  background-color: #e600e6;
-  grid-column: -2;
-  grid-row: 2 / span 6;
+.equals {
+background-color: #e600e6;
+grid-column: -2;
+grid-row: 2 / span 6;
 }
 
 button:active{
-    background: #ff471a;
+background: #ff471a;
 }
