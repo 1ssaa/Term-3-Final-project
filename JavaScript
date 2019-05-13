@@ -1,55 +1,116 @@
-const calculator = document.querySelector(".calculator")
-const Buttons = calculator.querySelector(".calculator__Buttons")
 
-button.addEventListener("onclick",
-{
+(function() {
+  "use strict";
 
-const button = e.target
-const action = button.dataset.action // this determines the type of key that is clicked
+  var el = function(element) {
+    if (element.charAt(0) === "#") {
+      return document.querySelector(element);
+    }
 
-if (!action) {
-  console.log('number button!')
-}
+    return document.querySelectorAll(element);
+  };
 
-if (
-  action === 'add'
-  action === 'subtract'
-  action === 'multiply'
-  action === 'divide'
-) {
-  console.log('symbol button!')
-}
+  // Variables
+  var viewer = el("#screen"),
+    equals = el("#equals"),
+    nums = el(".num"),
+    ops = el(".ops"),
+    theNum = "",
+    oldNum = "",
+    resultNum,
+    operator;
 
-if (action === 'decimal') {
-  console.log('decimal key pressed!')
-}
-if (action === 'reset') {
-  console.log('clear key pressed!')
-}
-if (action === 'calculate') {
-  console.log('equal key pressed!')
-}// checking if any of these buttons that have these actions in HTLM are pressed
-// in the console when any button pressed it will show in the consol
 
-const screen = document.querySelector('.calculator__screen')
+  var setNum = function() {
+    if (resultNum) {
+      theNum = this.getAttribute("data-num");
+      resultNum = "";
+    } else {
+      theNum += this.getAttribute("data-num");
+    }
 
-button.addEventListener('click', e => {
-  if (e.target.matches('button')) {
-    const button = e.target
-    const action = button.dataset.action
-    const buttonContent = button.textContent
-    const displayedNum = screen.textContent
+    viewer.innerHTML = theNum;
+
+  };
+
+
+  var moveNum = function() {
+    oldNum = theNum;
+    theNum = "";
+    operator = this.getAttribute("data-ops");
+
+    equals.setAttribute("data-result", "");
+  };
+
+  var displayNum = function() {
+
+
+    oldNum = parseFloat(oldNum);
+    theNum = parseFloat(theNum);
+
+
+    switch (operator) {
+      case "plus":
+        resultNum = oldNum + theNum;
+        break;
+
+      case "minus":
+        resultNum = oldNum - theNum;
+        break;
+
+      case "times":
+        resultNum = oldNum * theNum;
+        break;
+
+      case "divided by":
+        resultNum = oldNum / theNum;
+        break;
+
+
+      default:
+        resultNum = theNum;
+    }
+
+
+    if (!isFinite(resultNum)) {
+      if (isNaN(resultNum)) {
+        resultNum = "You broke it!";
+      } else {
+        resultNum = "Look at what you've done";
+        el('#calculator').classList.add("broken");
+        el('#reset').classList.add("show");
+      }
+    }
+
+    viewer.innerHTML = resultNum;
+    equals.setAttribute("data-result", resultNum);
+
+    oldNum = 0;
+    theNum = resultNum;
+
+  };
+
+  var clearAll = function() {
+    oldNum = "";
+    theNum = "";
+    viewer.innerHTML = "0";
+    equals.setAttribute("data-result", resultNum);
+  };
+
+  for (var i = 0, l = nums.length; i < l; i++) {
+    nums[i].onclick = setNum;
   }
-})
 
-if (!action) {
-  if (displayedNum === '0') {
-    screen.textContent = buttonContent
-  } else {
-    screen.textContent = displayedNum + buttonContent
+  for (var i = 0, l = ops.length; i < l; i++) {
+    ops[i].onclick = moveNum;
   }
-}
-// replaces the default 0 on the screen with the number pressed
 
+  equals.onclick = displayNum;
 
+  el("#clear").onclick = clearAll;
 
+  el("#reset").onclick = function() {
+    window.location = window.location;
+  };
+
+}());
