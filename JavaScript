@@ -1,116 +1,115 @@
- var document = "calculator";
+var document = "calculator";
 
-(function() {
-  "use strict";
+ "use strict";
 
-  var el = function(element) {
-    if (element.charAt(0) === "#") {
-      return document.querySelector(element);
-    }
+ var el = function(element) {
+   if (element.charAt(0) === "#") {
+     return document.querySelector(element);
+   }
 
-    return document.querySelectorAll(element);
-  };
-  //changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
+   return document.querySelectorAll(element);
+ };
+ //changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
 
-  var screen = el("#screen"),
-    equals = el("#equals"),
-    nums = el(".num"),
-    ops = el(".ops"),
-    theNum = "",
-    oldNum = "",
-    resultNum,
-    operator;
-
-
-  var setNum = function() {
-    if (resultNum) {
-      theNum = this.getAttribute("data-num");
-      resultNum = "";
-    } else {
-      theNum += this.getAttribute("data-num");
-    }
-
-    screen.innerHTML = theNum;
-
-  };
+ var screenDiv = el("#screen"),
+   equals = el("#equals"),
+   nums = el(".num"),
+   ops = el(".ops"),
+   theNum = "",
+   oldNum = "",
+   resultNum,
+   operator;
 
 
-  var moveNum = function() {
-    oldNum = theNum;
-    theNum = "";
-    operator = this.getAttribute("data-ops");
+ var setNum = function() {
+   if (resultNum) {
+     theNum = this.getAttribute("data-num");
+     resultNum = "";
+   } else {
+     theNum += this.getAttribute("data-num");
+   }
 
-    equals.setAttribute("data-result", "");
-  };
+   screenDiv.innerHTML = theNum;
 
-  var displayNum = function() {
-
-
-    oldNum = parseFloat(oldNum);
-    theNum = parseFloat(theNum);
+ };
 
 
-    switch (operator) {
-      case "plus":
-        resultNum = oldNum + theNum;
-        break;
+ var moveNum = function() {
+   oldNum = theNum;
+   theNum = "";
+   operator = this.getAttribute("data-ops");
 
-      case "minus":
-        resultNum = oldNum - theNum;
-        break;
+   equals.setAttribute("data-result", "");
+ };
 
-      case "times":
-        resultNum = oldNum * theNum;
-        break;
-
-      case "divided by":
-        resultNum = oldNum / theNum;
-        break;
+ var displayNum = function() {
 
 
-      default:
-        resultNum = theNum;
-    }
+   oldNum = parseFloat(oldNum);
+   theNum = parseFloat(theNum);
 
 
-    if (!isFinite(resultNum)) {
-      if (isNaN(resultNum)) {
-        resultNum = "Incorrect operation press AC";
-      } else {
-        resultNum = "oops try again";
-        el('#calculator').classList.add("broken");
-        el('#reset').classList.add("show");
-      }
-    }
+   switch (operator) {
+     case "plus":
+       resultNum = oldNum + theNum;
+       break;
 
-    screen.innerHTML = resultNum;
-    equals.setAttribute("data-result", resultNum);
+     case "minus":
+       resultNum = oldNum - theNum;
+       break;
 
-    oldNum = 0;
-    theNum = resultNum;
+     case "times":
+       resultNum = oldNum * theNum;
+       break;
 
-  };
+     case "divided by":
+       resultNum = oldNum / theNum;
+       break;
 
-  var clearAll = function() {
-    screen.innerHTML = "0";
-    equals.setAttribute("data-result", resultNum);
-  };
 
-  for (var i = 0, l = nums.length; i < l; i++) {
-    nums[i].onclick = setNum;
-  }
+     default:
+       resultNum = theNum;
+   }
 
-  for (var i = 0, l = ops.length; i < l; i++) {
-    ops[i].onclick = moveNum;
-  }
-  // taken from https://www.javatpoint.com/calculator-in-java
 
-  equals.onclick = displayNum;
+   if (!isFinite(resultNum)) {
+     if (isNaN(resultNum)) {
+       resultNum = "Incorrect operation press AC";
+     } else {
+       resultNum = "oops try again";
+       el('#calculator').classList.add("broken");
+       el('#reset').classList.add("show");
+     }
+   }
 
-  el("#clear").onclick = clearAll;
+   screenDiv.innerHTML = resultNum;
+   equals.setAttribute("data-result", resultNum);
 
-  el("#reset").onclick = function() {
-    window.location = window.location;
-  };
+   oldNum = 0;
+   theNum = resultNum;
 
-}());
+ };
+
+ var clearAll = function() {
+   screenDiv.innerHTML = "0";
+   equals.setAttribute("data-result", resultNum);
+ };
+
+ for (var i = 0, l = nums.length; i < l; i++) {
+   nums[i].onclick = setNum;
+ }
+
+ for (var i = 0, l = ops.length; i < l; i++) {
+   ops[i].onclick = moveNum;
+ }
+ // taken from https://www.javatpoint.com/calculator-in-java
+
+ equals.onclick = displayNum;
+
+ el("#clear").onclick = clearAll;
+
+/*
+ el("#reset").onclick = function() {
+   window.location = window.location;
+ };
+*/
