@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <link type="text/css" rel="stylesheet" href="style.css"/>
-     <script src="JavaScript"></script>
+     <link type="text/css" rel="stylesheet" href="css.css"/>
+     <script src="script2.js"></script>
   </head>
     <div class="container">
       <p>
         <em> Handy Dandy Calculator </em>
       </p>
-    <div class="calculator">
-      <div class="calculator_screen">0</div>
-      <div class="calculator_Buttons">
-        <button action="add" class="symbol">+</button>
-        <button action="multiply" class="symbol">x</button>
-        <button action="subtract" class="symbol">-</button>
-        <button action="divide" class="symbol">÷</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>0</button>
-        <button action="decimal">.</button>
-        <button action="clear">AC</button>
-        <button class="equal" action="calculate">=</button>
-      </div>
+    <div id="calculator" class="calculator">
+      <div id="screen" class="screen">0</div>
+      <div class="calculator-keys">
+
+        <button data-ops="plus" class="ops">+</button>
+        <button data-ops="minus" class="ops">-</button>
+        <button data-ops="times" class="ops">x</button>
+        <button data-ops="divided by" class="ops">÷</button>
+
+        <button class="num" data-num="7">7</button>
+        <button class="num" data-num="8">8</button>
+        <button class="num" data-num="9">9</button>
+        <button class="num" data-num="4">4</button>
+        <button class="num" data-num="5">5</button>
+        <button class="num" data-num="6">6</button>
+        <button class="num" data-num="1">1</button>
+        <button class="num" data-num="2">2</button>
+        <button class="num" data-num="3">3</button>
+        <button class="num" data-num="0">0</button>
+
+        <button class="num" data-num=".">.</button>
+        <button id="clear" class"clear">AC</button>
+        <button id="equals" class="equals" data-result="">=</button>
     </div>
   </div>
 </html>
