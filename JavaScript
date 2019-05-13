@@ -10,9 +10,9 @@
 
     return document.querySelectorAll(element);
   };
+  //changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
 
-  // Variables
-  var viewer = el("#screen"),
+  var screen = el("#screen"),
     equals = el("#equals"),
     nums = el(".num"),
     ops = el(".ops"),
@@ -30,7 +30,7 @@
       theNum += this.getAttribute("data-num");
     }
 
-    viewer.innerHTML = theNum;
+    screen.innerHTML = theNum;
 
   };
 
@@ -75,15 +75,15 @@
 
     if (!isFinite(resultNum)) {
       if (isNaN(resultNum)) {
-        resultNum = "You broke it!";
+        resultNum = "Incorrect operation press AC";
       } else {
-        resultNum = "Look at what you've done";
+        resultNum = "oops try again";
         el('#calculator').classList.add("broken");
         el('#reset').classList.add("show");
       }
     }
 
-    viewer.innerHTML = resultNum;
+    screen.innerHTML = resultNum;
     equals.setAttribute("data-result", resultNum);
 
     oldNum = 0;
@@ -92,9 +92,7 @@
   };
 
   var clearAll = function() {
-    oldNum = "";
-    theNum = "";
-    viewer.innerHTML = "0";
+    screen.innerHTML = "0";
     equals.setAttribute("data-result", resultNum);
   };
 
@@ -105,6 +103,7 @@
   for (var i = 0, l = ops.length; i < l; i++) {
     ops[i].onclick = moveNum;
   }
+  // taken from https://www.javatpoint.com/calculator-in-java
 
   equals.onclick = displayNum;
 
