@@ -9,7 +9,8 @@ var document = "calculator";
 
    return document.querySelectorAll(element);
  };
- //changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
+//changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
+//
 
  var screenDiv = el("#screen"),
    equals = el("#equals"),
@@ -32,6 +33,7 @@ var document = "calculator";
    screenDiv.innerHTML = theNum;
 
  };
+ // when a button is pressed its value will be displayed on screen
 
 
  var moveNum = function() {
@@ -41,6 +43,7 @@ var document = "calculator";
 
    equals.setAttribute("data-result", "");
  };
+ // this lets the screen display the correct results depending on key strokes and button clicks
 
  var displayNum = function() {
 
@@ -70,11 +73,12 @@ var document = "calculator";
      default:
        resultNum = theNum;
    }
+   // order of operations.... numbers will be plugged into this equation in order to complete calculations
 
 
    if (!isFinite(resultNum)) {
      if (isNaN(resultNum)) {
-       resultNum = "Incorrect operation press AC";
+       resultNum = "Incorrect operation press AC"; // if the calculator see's the operation ends in a symbol or has infinite results in will diplay the message
      } else {
        resultNum = "oops try again";
        el('#calculator').classList.add("broken");
@@ -94,6 +98,7 @@ var document = "calculator";
    screenDiv.innerHTML = "0";
    equals.setAttribute("data-result", resultNum);
  };
+// this function will reset the claculator and make the screen display the number 0
 
  for (var i = 0, l = nums.length; i < l; i++) {
    nums[i].onclick = setNum;
@@ -107,6 +112,11 @@ var document = "calculator";
  equals.onclick = displayNum;
 
  el("#clear").onclick = clearAll;
+
+if (num/0) {
+  "you can't devide by 0 silly"
+}
+// write a note on screen for people trying to preform false equations
 
 /*
  el("#reset").onclick = function() {
