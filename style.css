@@ -67,3 +67,29 @@ title{
   font: Chalkduster, fantasy;
   color: blue;
 }
+
+
+.sub {
+  color: blue;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+.classic {
+  background-color: #e600e6;
+  border-radius: 50px;
+  grid-column: 20;
+  grid-row: 50;
+}
+.blue {
+  background-color: blue;
+  border-radius: 50px;
+  grid-column: 20;
+  grid-row: 50;
+}
+.green {
+  background-color: green;
+  border-radius: 50px;
+  grid-column: 20;
+  grid-row: 50;
+}
