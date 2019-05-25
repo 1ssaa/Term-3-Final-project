@@ -89,7 +89,7 @@ title{
   grid-row: 50;
 }
 .green {
-  background-color: green;
+  background-color: #00ff00;
   border-radius: 50px;
   grid-column: 20;
   grid-row: 50;
