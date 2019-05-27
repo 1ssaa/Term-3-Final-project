@@ -9,6 +9,11 @@ font-size: 250%;
 font-weight: 300;
 }
 
+title{
+  font: Chalkduster, fantasy;
+  color: blue;
+}
+
 button {
 color: #000000;
 backround-color: #b38f00;
@@ -30,6 +35,17 @@ justify-content: center;
 }
 /* "dispalay:flex" taken from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98 */
 
+.sub {
+  padding: -20px;
+  color: blue;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+button:active{
+background: #ff471a;
+}
+
 .screen {
 border: 4px solid #ffcc00;
 background-color: #ffccff;
@@ -38,42 +54,6 @@ font-size: auto;
 padding: 0.85em .5em;
 text-align: right;
 overflow: hidden;
-}
-
-.calculator-keys {
-background-color: #ffcc00;
-display: grid;
-grid-gap: 0.75px;
-grid-template-columns: repeat(4,1fr);
-}
-
-.calculator-keys > * {
-background-color: #F0F8FF;
-padding: 0.5em 1.25em;
-text-align: center;
-}
-
-.equals {
-background-color: #e600e6;
-grid-column: -2;
-grid-row: 2 / span 6;
-}
-
-button:active{
-background: #ff471a;
-}
-
-title{
-  font: Chalkduster, fantasy;
-  color: blue;
-}
-
-
-.sub {
-  padding: -20px;
-  color: blue;
-  text-decoration: underline;
-  font-size: 40px;
 }
 
 .classic {
@@ -95,21 +75,27 @@ title{
   grid-row: 50;
 }
 
-.classic1 {
+.calculator-keys {
 background-color: #ffcc00;
 display: grid;
 grid-gap: 0.75px;
 grid-template-columns: repeat(4,1fr);
 }
 
-.classic1 > * {
+.calculator-keys > * {
 background-color: #F0F8FF;
 padding: 0.5em 1.25em;
 text-align: center;
 }
 
+.equals {
+background-color: #e600e6;
+grid-column: -2;
+grid-row: 2 / span 6;
+}
+
 .blue1 {
-background-color: blue;
+background-color: none;
 display: grid;
 grid-gap: 0.75px;
 grid-template-columns: repeat(4,1fr);
@@ -121,8 +107,15 @@ padding: 0.5em 1.25em;
 text-align: center;
 }
 
-.green1 {
+.blue2 {
 background-color: green;
+grid-column: -2;
+grid-row: 2 / span 6;
+}
+
+
+.green1 {
+background-color: none;
 display: grid;
 grid-gap: 0.75px;
 grid-template-columns: repeat(4,1fr);
@@ -132,4 +125,10 @@ grid-template-columns: repeat(4,1fr);
 background-color: green;
 padding: 0.5em 1.25em;
 text-align: center;
+}
+
+.green2 {
+background-color: blue;
+grid-column: -2;
+grid-row: 2 / span 6;
 }
