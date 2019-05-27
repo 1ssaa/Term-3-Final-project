@@ -122,13 +122,13 @@ grid-template-columns: repeat(4,1fr);
 }
 
 .green1 > * {
-background-color: #80ff80;
+background-color: #66ff66;
 padding: 0.5em 1.25em;
 text-align: center;
 }
 
 .green2 {
-background-color: #00ff00;
+background-color: #00cc00;
 grid-column: -2;
 grid-row: 2 / span 6;
 }
