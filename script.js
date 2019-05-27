@@ -121,6 +121,7 @@ if (Num/0) {
 
 function changeClass1() {
        document.getElementById('keys').className = "calculator-keys";
+       document.getElementById('equals').className = "equals";
 }
 // changing class in html to calculator-keys so that it can change the theme/css
 
