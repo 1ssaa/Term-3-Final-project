@@ -102,13 +102,13 @@ grid-template-columns: repeat(4,1fr);
 }
 
 .blue1 > * {
-background-color: blue;
+background-color: #80ccff;
 padding: 0.5em 1.25em;
 text-align: center;
 }
 
 .blue2 {
-background-color: green;
+background-color: #006bb3;
 grid-column: -2;
 grid-row: 2 / span 6;
 }
@@ -122,13 +122,13 @@ grid-template-columns: repeat(4,1fr);
 }
 
 .green1 > * {
-background-color: green;
+background-color: #80ff80;
 padding: 0.5em 1.25em;
 text-align: center;
 }
 
 .green2 {
-background-color: blue;
+background-color: #00ff00;
 grid-column: -2;
 grid-row: 2 / span 6;
 }
