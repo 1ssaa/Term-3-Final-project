@@ -89,8 +89,47 @@ title{
   grid-row: 50;
 }
 .green {
-  background-color: #00ff00;
+  background-color: green;
   border-radius: 50px;
   grid-column: 20;
   grid-row: 50;
+}
+
+.classic1 {
+background-color: #ffcc00;
+display: grid;
+grid-gap: 0.75px;
+grid-template-columns: repeat(4,1fr);
+}
+
+.classic1 > * {
+background-color: #F0F8FF;
+padding: 0.5em 1.25em;
+text-align: center;
+}
+
+.blue1 {
+background-color: blue;
+display: grid;
+grid-gap: 0.75px;
+grid-template-columns: repeat(4,1fr);
+}
+
+.blue1 > * {
+background-color: blue;
+padding: 0.5em 1.25em;
+text-align: center;
+}
+
+.green1 {
+background-color: green;
+display: grid;
+grid-gap: 0.75px;
+grid-template-columns: repeat(4,1fr);
+}
+
+.green1 > * {
+background-color: green;
+padding: 0.5em 1.25em;
+text-align: center;
 }
