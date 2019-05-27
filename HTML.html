@@ -9,12 +9,12 @@
         <em> Handy Dandy Calculator </em>
       </p>
       <p class="sub"> Themes <p>
-      <button class="classic"> classic </button>
-      <button class="blue"> blue </button>
-      <button class="green"> green </button>
+      <button class="classic" onclick="changeClass1()"> classic </button>
+      <button class="blue" onclick="changeClass2()"> blue </button>
+      <button class="green" onclick="changeClass3()"> green </button>
     <div id="calculator" class="calculator">
       <div id="screen" class="screen">0</div>
-      <div class="calculator-keys">
+      <div class="calculator-keys" id="keys">
 
         <button data-ops="plus" class="ops">+</button>
         <button data-ops="minus" class="ops">-</button>
