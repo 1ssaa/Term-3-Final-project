@@ -118,19 +118,21 @@ if (Num/0) {
 }
 // write a note on screen for people trying to preform false equations
 
-/*
- el("#reset").onclick = function() {
-   window.location = window.location;
- };
-*/
+
 function changeClass1() {
-       document.getElementById('keys').className = "classic1";
+       document.getElementById('keys').className = "calculator-keys";
 }
+// changing class in html to calculator-keys so that it can change the theme/css
 
 function changeClass2() {
        document.getElementById('keys').className = "blue1";
+       document.getElementById('equals').className = "blue2";
 }
+// changing class in html to blue 1 and blue 2 so that it can change the theme/css
+
 
 function changeClass3() {
        document.getElementById('keys').className = "green1";
+       document.getElementById('equals').className = "green2";
 }
+// changing class in html to green 1 and green 2 so that it can change the theme/css
