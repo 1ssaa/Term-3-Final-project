@@ -113,11 +113,6 @@ var document = "calculator";
 
  el("#clear").onclick = clearAll;
 
-if (Num/0) {
-  "you can't devide by 0 silly"
-}
-// write a note on screen for people trying to preform false equations
-
 
 function changeClass1() {
        document.getElementById('keys').className = "calculator-keys";
