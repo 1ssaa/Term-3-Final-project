@@ -123,3 +123,14 @@ if (Num/0) {
    window.location = window.location;
  };
 */
+function changeClass1() {
+       document.getElementById('keys').className = "classic1";
+}
+
+function changeClass2() {
+       document.getElementById('keys').className = "blue1";
+}
+
+function changeClass3() {
+       document.getElementById('keys').className = "green1";
+}
