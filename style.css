@@ -1,134 +1,139 @@
-p {
-font-weight: bold;
-font-size: 60px;
-text-align: center;
-}
+var document = "calculator";
 
-html {
-font-size: 250%;
-font-weight: 300;
-}
+ "use strict";
 
-title{
-  font: Chalkduster, fantasy;
-  color: blue;
-}
+ var el = function(element) {
+   if (element.charAt(0) === "#") {
+     return document.querySelector(element);
+   }
 
-button {
-color: #000000;
-backround-color: #b38f00;
-border-radius: 15px ;
-font-family: Anton;
-background-color: transparent;
-font-size: inherit;
-text-align: center;
-outline: 2px solid #ffcc00;
-border:  1px solid #ffcc00;
-}
+   return document.querySelectorAll(element);
+ };
+//changed code found from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98
+//
+
+ var screenDiv = el("#screen"),
+   equals = el("#equals"),
+   nums = el(".num"),
+   ops = el(".ops"),
+   theNum = "",
+   oldNum = "",
+   resultNum,
+   operator;
 
 
-body {
-align-items: center;
-background-color:#ffcc00;
-display: flex;
-justify-content: center;
-}
-/* "dispalay:flex" taken from https://medium.freecodecamp.org/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98 */
+ var setNum = function() {
+   if (resultNum) {
+     theNum = this.getAttribute("data-num");
+     resultNum = "";
+   } else {
+     theNum += this.getAttribute("data-num");
+   }
 
-.sub {
-  padding: -20px;
-  color: blue;
-  text-decoration: underline;
-  font-size: 40px;
-}
+   screenDiv.innerHTML = theNum;
 
-button:active{
-background: #ff471a;
-}
-
-.screen {
-border: 4px solid #ffcc00;
-background-color: #ffccff;
-color: #000000;
-font-size: auto;
-padding: 0.85em .5em;
-text-align: right;
-overflow: hidden;
-}
-
-.classic {
-  background-color: #e600e6;
-  border-radius: 50px;
-  grid-column: 20;
-  grid-row: 50;
-}
-.blue {
-  background-color: blue;
-  border-radius: 50px;
-  grid-column: 20;
-  grid-row: 50;
-}
-.green {
-  background-color: #00ff00;
-  border-radius: 50px;
-  grid-column: 20;
-  grid-row: 50;
-}
-
-.calculator-keys {
-background-color: #ffcc00;
-display: grid;
-grid-gap: 0.75px;
-grid-template-columns: repeat(4,1fr);
-}
-
-.calculator-keys > * {
-background-color: #F0F8FF;
-padding: 0.5em 1.25em;
-text-align: center;
-}
-
-.equals {
-background-color: #e600e6;
-grid-column: -2;
-grid-row: 2 / span 6;
-}
-
-.blue1 {
-background-color: none;
-display: grid;
-grid-gap: 0.75px;
-grid-template-columns: repeat(4,1fr);
-}
-
-.blue1 > * {
-background-color: #80ccff;
-padding: 0.5em 1.25em;
-text-align: center;
-}
-
-.blue2 {
-background-color: #006bb3;
-grid-column: -2;
-grid-row: 2 / span 6;
-}
+ };
+ // when a button is pressed its value will be displayed on screen
 
 
-.green1 {
-background-color: none;
-display: grid;
-grid-gap: 0.75px;
-grid-template-columns: repeat(4,1fr);
-}
+ var moveNum = function() {
+   oldNum = theNum;
+   theNum = "";
+   operator = this.getAttribute("data-ops");
 
-.green1 > * {
-background-color: #80ff80;
-padding: 0.5em 1.25em;
-text-align: center;
-}
+   equals.setAttribute("data-result", "");
+ };
+ // this lets the screen display the correct results depending on key strokes and button clicks
 
-.green2 {
-background-color: #00ff00;
-grid-column: -2;
-grid-row: 2 / span 6;
+ var displayNum = function() {
+
+
+   oldNum = parseFloat(oldNum);
+   theNum = parseFloat(theNum);
+
+
+   switch (operator) {
+     case "plus":
+       resultNum = oldNum + theNum;
+       break;
+
+     case "minus":
+       resultNum = oldNum - theNum;
+       break;
+
+     case "times":
+       resultNum = oldNum * theNum;
+       break;
+
+     case "divided by":
+       resultNum = oldNum / theNum;
+       break;
+
+
+     default:
+       resultNum = theNum;
+   }
+   // order of operations.... numbers will be plugged into this equation in order to complete calculations
+
+
+   if (!isFinite(resultNum)) {
+     if (isNaN(resultNum)) {
+       resultNum = "Incorrect operation press AC"; // if the calculator see's the operation ends in a symbol or has infinite results in will diplay the message
+     } else {
+       resultNum = "oops try again";
+       el('#calculator').classList.add("broken");
+       el('#reset').classList.add("show");
+     }
+   }
+
+   screenDiv.innerHTML = resultNum;
+   equals.setAttribute("data-result", resultNum);
+
+   oldNum = 0;
+   theNum = resultNum;
+
+ };
+
+ var clearAll = function() {
+   screenDiv.innerHTML = "0";
+   equals.setAttribute("data-result", resultNum);
+ };
+// this function will reset the claculator and make the screen display the number 0
+
+ for (var i = 0, l = nums.length; i < l; i++) {
+   nums[i].onclick = setNum;
+ }
+
+ for (var i = 0, l = ops.length; i < l; i++) {
+   ops[i].onclick = moveNum;
+ }
+ // taken from https://www.javatpoint.com/calculator-in-java
+
+ equals.onclick = displayNum;
+
+ el("#clear").onclick = clearAll;
+
+if (Num/0) {
+  "you can't devide by 0 silly"
 }
+// write a note on screen for people trying to preform false equations
+
+
+function changeClass1() {
+       document.getElementById('keys').className = "calculator-keys";
+       document.getElementById('equals').className = "equals";
+}
+// changing class in html to calculator-keys so that it can change the theme/css
+
+function changeClass2() {
+       document.getElementById('keys').className = "blue1";
+       document.getElementById('equals').className = "blue2";
+}
+// changing class in html to blue 1 and blue 2 so that it can change the theme/css
+
+
+function changeClass3() {
+       document.getElementById('keys').className = "green1";
+       document.getElementById('equals').className = "green2";
+}
+// changing class in html to green 1 and green 2 so that it can change the theme/css
